@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :set_restaurant
   def new
-    @restaurant = Restaurant.find(params[:id])
     @review = Review.new
   end
 
@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_restaurant
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def review_params
